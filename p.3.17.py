@@ -1,0 +1,5 @@
+a = eval('2 * 3 + 1')
+b = eval('hello')
+c = eval("'hello' + ' ' + 'world!'")
+d = eval("'ASCII'.count('I')")
+e = eval('x = 5' )
