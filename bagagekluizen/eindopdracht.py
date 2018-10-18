@@ -17,6 +17,7 @@ def kluis_openen():
 def nieuwe_kluis():
     gevondenkluizen=[]
     lijst=[1,2,3,4,5,6,7,8,9,10,11,12]
+    newlist=[]
     infile = open('C:/Users/jack/PycharmProjects/untitled/bagagekluizen/kluizen.txt', 'r+')
     content = infile.readlines()
     #loop door het bestand
@@ -27,12 +28,16 @@ def nieuwe_kluis():
         regel = regel.split(';')
         gevondenkluizen.append(int(regel[0]))
         lijst = [x for x in lijst if x not in gevondenkluizen]
+    for x in lijst:
+        if x not in gevondenkluizen:
+            newlist.append(x)
+
     if len(content) <12:
         print('vrije kluizen',lijst)
         code=input('voer een code op')
         if len(code) >3:
-            infile.write(str(min(lijst)) + ';'+str(code) + '\n')
-            print('je kluisnummer is ' + str(min(lijst)) + ' je code is ' + code)
+            infile.write(str(min(newlist)) + ';'+str(code) + '\n')
+            print('je kluisnummer is ' + str(min(newlist)) + ' je code is ' + code)
 
         else:
             print('fout code moet langer zijn dan 3 letters')
